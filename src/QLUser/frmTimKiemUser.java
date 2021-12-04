@@ -13,7 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import class User.getTen;
 /**
  *
  * @author TienDat
@@ -175,26 +174,23 @@ public class frmTimKiemUser extends javax.swing.JFrame {
 //            dm.addRow((Vector)rows.get(i));
 //        }
 //        this.validate();
-        
+        String ten = txtTen.getText();
+        //Vector rows = accessUser.timKiem(ten);//đang test
+        //Vector rows = new Vector();
         DBAccess acc = new DBAccess();   
-        ResultSet rs = acc.Query("SELECT * FROM thongtinnguoisd"); 
-        
+        ResultSet rs = acc.Query("SELECT * FROM thongtinnguoisd WHERE ten = Ten");        
         DefaultTableModel dm = (DefaultTableModel) this.tblKetQua.getModel(); 
+        dm.setRowCount(0);
 //        ArrayList array = new ArrayList();
         try {
-            while (rs.next()) {                                
-//                User User = new User(rs.getString("Ten"),rs.getString("MatKhau"),rs.getString("Duongdan"), rs.getInt("Quyentruyxuat"));
-//                array.add(User);
-                
-                Object[] row = {rs.getString("Ten"),rs.getString("MatKhau"),rs.getString("Duongdan"), rs.getInt("Quyentruyxuat")};
-//                for(int i =0;i<array.size();i++)
-//                {
-//                    row[0] = array.get(i);
-//                    row[1] = array.get(i);
-//                    row[2] = array.get(i);
-//                    row[3] = array.get(i);                                   
-//                }
-                dm.addRow(row);
+            while (rs.next())
+            {                                                          
+                Object[] rows = {rs.getString("Ten"),rs.getString("MatKhau"),rs.getString("Duongdan"), rs.getInt("Quyentruyxuat")};  
+                /*rows.add(rs.getString("Ten"));
+                rows.add(rs.getString("Matkhau"));
+                rows.add(rs.getString("Duongdan"));
+                rows.add(rs.getInt("Quyentruyxuat"));*/
+                dm.addRow(rows);
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "lỗi dữ liệu");

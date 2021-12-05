@@ -50,6 +50,7 @@ public class frmTimKiemUser extends javax.swing.JFrame {
         rbFull = new javax.swing.JRadioButton();
         btnTimKiemtheoquyen = new javax.swing.JButton();
         btnHuy = new javax.swing.JButton();
+        btn_dsnguoisd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,29 +104,43 @@ public class frmTimKiemUser extends javax.swing.JFrame {
             }
         });
 
+        btn_dsnguoisd.setBackground(new java.awt.Color(255, 102, 102));
+        btn_dsnguoisd.setText("Hiện danh sách người sử dụng");
+        btn_dsnguoisd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_dsnguoisdActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(rbWrite)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnTimKiemtheoquyen))
-                    .addComponent(rbFull)
-                    .addComponent(rbRead)
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
                         .addComponent(txtTen, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnHuy)
-                            .addComponent(btnTimKiemtheoten))))
+                            .addComponent(btnTimKiemtheoten)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_dsnguoisd)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rbWrite)
+                                        .addGap(33, 33, 33)
+                                        .addComponent(btnTimKiemtheoquyen))
+                                    .addComponent(rbFull)
+                                    .addComponent(rbRead))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -149,7 +164,9 @@ public class frmTimKiemUser extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rbFull)))
                 .addGap(43, 43, 43)
-                .addComponent(btnHuy)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnHuy)
+                    .addComponent(btn_dsnguoisd))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,6 +242,24 @@ public class frmTimKiemUser extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnTimKiemtheoquyenActionPerformed
 
+    private void btn_dsnguoisdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dsnguoisdActionPerformed
+        // danh sách người sử dụng
+        DBAccess acc = new DBAccess();   
+        ResultSet rs = acc.Query("SELECT * FROM thongtinnguoisd");        
+        DefaultTableModel dm = (DefaultTableModel) this.tblKetQua.getModel(); 
+        dm.setRowCount(0);
+//        ArrayList array = new ArrayList();
+        try {
+            while (rs.next())
+            {                                                          
+                Object[] rows = {rs.getString("Ten"),rs.getString("MatKhau"),rs.getString("Duongdan"), rs.getInt("Quyentruyxuat")};                
+                dm.addRow(rows);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "lỗi dữ liệu");
+        }
+    }//GEN-LAST:event_btn_dsnguoisdActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,6 +299,7 @@ public class frmTimKiemUser extends javax.swing.JFrame {
     private javax.swing.JButton btnHuy;
     private javax.swing.JButton btnTimKiemtheoquyen;
     private javax.swing.JButton btnTimKiemtheoten;
+    private javax.swing.JButton btn_dsnguoisd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

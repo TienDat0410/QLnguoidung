@@ -24,26 +24,36 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="rbWrite" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="btnTimKiemtheoquyen" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="rbFull" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="rbRead" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
                       <Component id="txtTen" min="-2" pref="223" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnHuy" min="-2" max="-2" attributes="0"/>
                           <Component id="btnTimKiemtheoten" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btn_dsnguoisd" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="rbWrite" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                      <Component id="btnTimKiemtheoquyen" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="rbFull" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbRead" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -76,8 +86,11 @@
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Component id="btnHuy" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnHuy" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_dsnguoisd" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="53" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <Component id="jScrollPane1" min="-2" pref="351" max="-2" attributes="0"/>
@@ -202,6 +215,17 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHuyActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_dsnguoisd">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Hi&#x1ec7;n danh s&#xe1;ch ng&#x1b0;&#x1edd;i s&#x1eed; d&#x1ee5;ng"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_dsnguoisdActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

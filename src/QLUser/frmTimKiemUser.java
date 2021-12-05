@@ -48,7 +48,7 @@ public class frmTimKiemUser extends javax.swing.JFrame {
         rbRead = new javax.swing.JRadioButton();
         rbWrite = new javax.swing.JRadioButton();
         rbFull = new javax.swing.JRadioButton();
-        btnTimKiemtheoten1 = new javax.swing.JButton();
+        btnTimKiemtheoquyen = new javax.swing.JButton();
         btnHuy = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,11 +86,11 @@ public class frmTimKiemUser extends javax.swing.JFrame {
 
         rbFull.setText("Full");
 
-        btnTimKiemtheoten1.setBackground(new java.awt.Color(102, 255, 255));
-        btnTimKiemtheoten1.setText("Tìm kiếm theo quyền");
-        btnTimKiemtheoten1.addActionListener(new java.awt.event.ActionListener() {
+        btnTimKiemtheoquyen.setBackground(new java.awt.Color(102, 255, 255));
+        btnTimKiemtheoquyen.setText("Tìm kiếm theo quyền");
+        btnTimKiemtheoquyen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTimKiemtheoten1ActionPerformed(evt);
+                btnTimKiemtheoquyenActionPerformed(evt);
             }
         });
 
@@ -117,7 +117,7 @@ public class frmTimKiemUser extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rbWrite)
                         .addGap(33, 33, 33)
-                        .addComponent(btnTimKiemtheoten1))
+                        .addComponent(btnTimKiemtheoquyen))
                     .addComponent(rbFull)
                     .addComponent(rbRead)
                     .addGroup(layout.createSequentialGroup()
@@ -145,7 +145,7 @@ public class frmTimKiemUser extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbWrite)
-                            .addComponent(btnTimKiemtheoten1))
+                            .addComponent(btnTimKiemtheoquyen))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rbFull)))
                 .addGap(43, 43, 43)
@@ -201,7 +201,7 @@ public class frmTimKiemUser extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTimKiemtheotenActionPerformed
 //tim kiém theo quyền
     
-    private void btnTimKiemtheoten1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemtheoten1ActionPerformed
+    private void btnTimKiemtheoquyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemtheoquyenActionPerformed
         // Tim kiếm theo quyền
         int quyen = 2;
         if(rbRead.isSelected()){
@@ -209,15 +209,21 @@ public class frmTimKiemUser extends javax.swing.JFrame {
         }
         else if(rbWrite.isSelected()){
             quyen  = 1;
+        }       
+        DefaultTableModel dm =(DefaultTableModel) this.tblKetQua.getModel();       
+        DBAccess acc = new DBAccess();
+        ResultSet rs = acc.Query("SELECT * FROM thongtinnguoisd WHERE Quyentruyxuat ='"+quyen+"'");
+        dm.setRowCount(0);
+        try {
+            while (rs.next())
+            {                                                          
+                Object[] rows = {rs.getString("Ten"),rs.getString("MatKhau"),rs.getString("Duongdan"), rs.getInt("Quyentruyxuat")};                  
+                dm.addRow(rows);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "lỗi dữ liệu");
         }
-        Vector rows = accessUser.timKiem(quyen);
-        DefaultTableModel dm =(DefaultTableModel) this.tblKetQua.getModel();
-        for (int i = 0;i< rows.size();i++)
-        {
-            dm.addRow((Vector)rows.get(i));
-        }
-        this.validate();
-    }//GEN-LAST:event_btnTimKiemtheoten1ActionPerformed
+    }//GEN-LAST:event_btnTimKiemtheoquyenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,8 +262,8 @@ public class frmTimKiemUser extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHuy;
+    private javax.swing.JButton btnTimKiemtheoquyen;
     private javax.swing.JButton btnTimKiemtheoten;
-    private javax.swing.JButton btnTimKiemtheoten1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -34,7 +34,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="rbWrite" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="btnTimKiemtheoten1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTimKiemtheoquyen" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="rbFull" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="rbRead" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -69,7 +69,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rbWrite" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnTimKiemtheoten1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnTimKiemtheoquyen" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="rbFull" min="-2" max="-2" attributes="0"/>
@@ -179,7 +179,7 @@
         <Property name="text" type="java.lang.String" value="Full"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnTimKiemtheoten1">
+    <Component class="javax.swing.JButton" name="btnTimKiemtheoquyen">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="66" type="rgb"/>
@@ -187,7 +187,7 @@
         <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m theo quy&#x1ec1;n"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemtheoten1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemtheoquyenActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnHuy">

@@ -178,7 +178,7 @@ public class frmTimKiemUser extends javax.swing.JFrame {
         //Vector rows = accessUser.timKiem(ten);//đang test
         //Vector rows = new Vector();
         DBAccess acc = new DBAccess();   
-        ResultSet rs = acc.Query("SELECT * FROM thongtinnguoisd WHERE ten = Ten");        
+        ResultSet rs = acc.Query("SELECT * FROM thongtinnguoisd WHERE Ten ='"+ten+"'");        
         DefaultTableModel dm = (DefaultTableModel) this.tblKetQua.getModel(); 
         dm.setRowCount(0);
 //        ArrayList array = new ArrayList();

@@ -18,7 +18,7 @@ public class MyConnection {
     {
         try {
             Class.forName("com.mysql.jbdc.Driver");
-            String url = "jdbc:mysql://localhost:3308/quanlydsnguoidung?user=root&password=";
+            String url = "jdbc:mysql://localhost:3306/qlnhanvien?user=root&password=";
             Connection con = DriverManager.getConnection(url);           
             return con;
         } catch (Exception e) 

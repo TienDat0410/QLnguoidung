@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  */
 public class XAMPP {
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3308/quanlydsnguoidung?user=root&password=";
+        String url = "jdbc:mysql://localhost:3306/qltaikhoan?user=root&password=";
         try(Connection conn = DriverManager.getConnection(url))
         {
             System.out.println("thành công");

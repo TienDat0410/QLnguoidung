@@ -57,6 +57,7 @@ public class frmTimKiemUser extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Tên User");
 
+        tblKetQua.setBackground(new java.awt.Color(255, 204, 204));
         tblKetQua.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -195,18 +196,13 @@ public class frmTimKiemUser extends javax.swing.JFrame {
         //Vector rows = accessUser.timKiem(ten);//đang test
         //Vector rows = new Vector();
         DBAccess acc = new DBAccess();   
-        ResultSet rs = acc.Query("SELECT * FROM thongtinnguoisd WHERE Ten ='"+ten+"'");        
+        ResultSet rs = acc.Query("SELECT * FROM taikhoan WHERE username ='"+ten+"'");        
         DefaultTableModel dm = (DefaultTableModel) this.tblKetQua.getModel(); 
         dm.setRowCount(0);
-//        ArrayList array = new ArrayList();
         try {
             while (rs.next())
             {                                                          
-                Object[] rows = {rs.getString("Ten"),rs.getString("MatKhau"),rs.getString("Duongdan"), rs.getInt("Quyentruyxuat")};  
-                /*rows.add(rs.getString("Ten"));
-                rows.add(rs.getString("Matkhau"));
-                rows.add(rs.getString("Duongdan"));
-                rows.add(rs.getInt("Quyentruyxuat"));*/
+                Object[] rows = {rs.getString("username"),rs.getString("password"),rs.getString("Duongdan"), rs.getInt("Quyentruyxuat")};         
                 dm.addRow(rows);
             }
         } catch (SQLException ex) {
@@ -229,12 +225,12 @@ public class frmTimKiemUser extends javax.swing.JFrame {
         }       
         DefaultTableModel dm =(DefaultTableModel) this.tblKetQua.getModel();       
         DBAccess acc = new DBAccess();
-        ResultSet rs = acc.Query("SELECT * FROM thongtinnguoisd WHERE Quyentruyxuat ='"+quyen+"'");
+        ResultSet rs = acc.Query("SELECT * FROM taikhoan WHERE Quyentruyxuat ='"+quyen+"'");
         dm.setRowCount(0);
         try {
             while (rs.next())
             {                                                          
-                Object[] rows = {rs.getString("Ten"),rs.getString("MatKhau"),rs.getString("Duongdan"), rs.getInt("Quyentruyxuat")};                  
+                Object[] rows = {rs.getString("username"),rs.getString("password"),rs.getString("Duongdan"), rs.getInt("Quyentruyxuat")};                  
                 dm.addRow(rows);
             }
         } catch (SQLException ex) {
@@ -245,14 +241,14 @@ public class frmTimKiemUser extends javax.swing.JFrame {
     private void btn_dsnguoisdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dsnguoisdActionPerformed
         // danh sách người sử dụng
         DBAccess acc = new DBAccess();   
-        ResultSet rs = acc.Query("SELECT * FROM thongtinnguoisd");        
+        ResultSet rs = acc.Query("SELECT * FROM taikhoan");        
         DefaultTableModel dm = (DefaultTableModel) this.tblKetQua.getModel(); 
         dm.setRowCount(0);
 //        ArrayList array = new ArrayList();
         try {
             while (rs.next())
             {                                                          
-                Object[] rows = {rs.getString("Ten"),rs.getString("MatKhau"),rs.getString("Duongdan"), rs.getInt("Quyentruyxuat")};                
+                Object[] rows = {rs.getString("username"),rs.getString("password"),rs.getString("Duongdan"), rs.getInt("Quyentruyxuat")};                
                 dm.addRow(rows);
             }
         } catch (SQLException ex) {

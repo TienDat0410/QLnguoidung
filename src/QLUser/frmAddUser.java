@@ -177,7 +177,7 @@ public class frmAddUser extends javax.swing.JFrame {
             Quyentruyxuat = 1;          
         }
         DBAccess acc = new DBAccess();
-        int kq = acc.Update ("insert into thongtinnguoisd values ('"+Ten+"','"+Matkhau+"','"+Duongdan+"',"+Quyentruyxuat+")"); 
+        int kq = acc.Update ("insert into taikhoan values ('"+Ten+"','"+Matkhau+"','"+Duongdan+"',"+Quyentruyxuat+")"); 
         //Kiểm tra xem đã đăng ký được hay chưa
         if(kq!=0)
             JOptionPane.showMessageDialog(null, "Thêm User thành công! hehe"); 

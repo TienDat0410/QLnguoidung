@@ -17,7 +17,7 @@ public class MyConnection {
     public Connection getConnection(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String URL = "jdbc:mysql://localhost:3308/quanlydsnguoidung?user=root&password=";      
+            String URL = "jdbc:mysql://localhost:3306/qltaikhoan?user=root&password=";      
             Connection con = DriverManager.getConnection(URL);           
             return con;
         }

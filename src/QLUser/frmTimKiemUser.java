@@ -184,17 +184,7 @@ public class frmTimKiemUser extends javax.swing.JFrame {
 
     private void btnTimKiemtheotenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemtheotenActionPerformed
         // tìm theo tên
-//        String ten = txtTen.getText();
-//        Vector rows = accessUser.timKiem(ten);
-//        DefaultTableModel dm = (DefaultTableModel) this.tblKetQua.getModel();
-//        for (int i = 0;i< rows.size();i++)
-//        {
-//            dm.addRow((Vector)rows.get(i));
-//        }
-//        this.validate();
         String ten = txtTen.getText();
-        //Vector rows = accessUser.timKiem(ten);//đang test
-        //Vector rows = new Vector();
         DBAccess acc = new DBAccess();   
         ResultSet rs = acc.Query("SELECT * FROM taikhoan WHERE username ='"+ten+"'");        
         DefaultTableModel dm = (DefaultTableModel) this.tblKetQua.getModel(); 
@@ -244,7 +234,6 @@ public class frmTimKiemUser extends javax.swing.JFrame {
         ResultSet rs = acc.Query("SELECT * FROM taikhoan");        
         DefaultTableModel dm = (DefaultTableModel) this.tblKetQua.getModel(); 
         dm.setRowCount(0);
-//        ArrayList array = new ArrayList();
         try {
             while (rs.next())
             {                                                          
